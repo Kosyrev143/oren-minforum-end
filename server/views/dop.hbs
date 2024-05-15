@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Отмена регистрации</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            background-color: yellow;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <div class="container">
+        <p>Для отмены регистрации нажмите на кнопку</p>
+        <button onclick="sendDeleteRequest()">Отменить регистрацию</button>
+    </div>
+
+  <script>
+    function sendDeleteRequest() {
+      fetch('/api/user/delete/{{id}}', { method: 'DELETE' })}
+  </script>
+</div>
+</body>
+</html>
