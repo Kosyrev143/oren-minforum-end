@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успешная регистрация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .success-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .success-message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .qrcode {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .profile-label {
+            font-weight: bold;
+            margin-left: 2.2rem;
+            margin-top: 1rem;
+        }
+        .delete-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="success-container">
+    <h1>Вы зарегистрировались!</h1>
+    <p class="success-message">Здравствуйте, {{name}}.<br> Чтобы принять участие в мероприятии, пожалуйста, предъявите этот QR-код:</p>
+    <div class="qrcode">
+        <img src="{{qrcode}}" alt="QR Code">
+    </div>
+    <div>
+        <p class="profile-label">Мероприятия, на которые вы зарегистрировались:</p>
+        <ul>
+            {{#each events}}
+                <li>{{this.name}} ({{this.start_time}} - {{this.end_time}})</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div>
+        Чтобы отменить регистрацию, нажмите на эту <a href="http://localhost:5000/api/user/delete/{{id}}">ссылку</a>.
+    </div>
+</div>
+</body>
+</html>

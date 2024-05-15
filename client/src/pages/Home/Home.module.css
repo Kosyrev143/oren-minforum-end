@@ -1,0 +1,511 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  font-family: "Inter Tight", sans-serif;
+}
+.all {
+  width: 100%;
+}
+.Center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.Home {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8rem;
+  padding-bottom: 7rem;
+}
+
+/* * Home section * */
+.HomeContainer {
+  width: 143rem;
+}
+.HomeHeaderBlock {
+  width: 100%;
+  height: 80rem;
+  display: flex;
+  flex-direction: column;
+  background-image: url(/public/Mask\ group.png);
+  background-size: cover;
+  border-radius: 15rem;
+}
+.blockHeaderImg {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rem;
+}
+.cards {
+  width: 18rem;
+  height: 18rem;
+}
+.gerb {
+  width: 9rem;
+  height: 10rem;
+}
+.HomeHeaderDescription {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  grid-gap: 5rem;
+  padding-left: 5rem;
+}
+.HomeHeaderDescription h2 {
+  font-size: 6rem;
+  font-weight: 400;
+}
+.HomeHeaderDescription p {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: left;
+}
+.HomeFooterDescription {
+  padding-top: 5rem;
+  display: flex;
+  justify-content: start;
+  padding-left: 3.5rem;
+  flex-direction: column;
+}
+.HomeFooterDescription div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  grid-gap: 5rem;
+}
+.HomeFooterDescription h2 {
+  font-size: 8.2rem;
+}
+.HomeFooterDescriptionItem button {
+  background: none;
+  border: 2px solid #4e89fb;
+  color: #4e89fb;
+  width: 35rem;
+  height: 7.5rem;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: #fff;
+}
+/* * Home section * */
+
+/* * About section * */
+.aboutSection {
+  width: 100%;
+  margin-top: 15rem;
+}
+.aboutContainer {
+  width: 143rem;
+}
+.aboutContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 14rem;
+}
+.aboutContentItem1 {
+  width: 65rem;
+  height: 65rem;
+  background: linear-gradient(140.97deg, #e1f3ff -2.2%, #b9e2ff 93.67%);
+  border-radius: 10rem;
+  padding: 5rem;
+}
+.aboutContentItem1 h2 {
+  font-size: 3rem;
+}
+.aboutContentItem1 p {
+  font-size: 3rem;
+}
+.aboutContentItem2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 4rem;
+}
+.image {
+  position: absolute;
+  z-index: -100;
+  background-size: cover;
+  width: 90rem;
+}
+.items {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 4rem;
+}
+.Item1 {
+  width: 65rem;
+  height: 30rem;
+  padding: 6rem;
+  border: 6px solid #fcde44;
+  border-radius: 7rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+.Item1 h2 {
+  font-size: 4.5rem;
+  padding-bottom: 3rem;
+}
+.Item1 p {
+  font-size: 3rem;
+}
+.Item2 {
+  width: 65rem;
+  height: 30rem;
+  padding: 6rem;
+  border: 6px solid #69db00;
+  border-radius: 7rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+.Item2 h2 {
+  font-size: 4.5rem;
+  padding-bottom: 3rem;
+}
+.Item2 p {
+  font-size: 2.5rem;
+}
+/* * About section * */
+
+/* * Event section * */
+.eventSection {
+  margin-top: 10rem;
+}
+.eventContent {
+  display: flex;
+  align-items: center;
+  grid-gap: 10rem;
+}
+.eventColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 8rem;
+}
+.eventButton {
+  background-color: transparent;
+  width: 13rem;
+  height: 6rem;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+/* * Event section * */
+
+/* * Map section * */
+.mapSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+.mapContainer {
+  width: 150rem;
+  height: 70rem;
+}
+.map {
+  width: 100%;
+  height: 100%;
+}
+.underMap {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+.mapContainer li {
+  margin: 0.6rem 0;
+}
+
+[class*="ymaps-2-1-79-copyright ymaps-2-1-79-copyright_logo_no"] {
+  display: none !important;
+}
+[class*="ymaps-2-1-79-gototech"] {
+  display: none !important;
+}
+/* * Map section * */
+
+/* * Slider section * */
+.sliderSection {
+  margin-bottom: 10rem;
+}
+.underSlider a {
+  display: flex;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 2rem;
+}
+.underSlider a:hover {
+  color: #1884ff;
+  transition: 0.3s;
+}
+/* * Slider section * */
+
+/* * Partner section * */
+.partner {
+  border-radius: 7rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem;
+}
+.partnerIcon {
+  width: 35rem;
+  border-radius: 5rem;
+  margin: 0 5rem;
+}
+.partnerSection {
+  margin-bottom: 10rem;
+}
+/* * Partner section * */
+
+@media (max-width: 1440px) {
+  .image {
+    width: 90rem;
+  }
+}
+@media (max-width: 1024px) {
+  .eventContent {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 5rem;
+  }
+  .HomeContainer {
+    width: 100%;
+  }
+  .blockHeaderImg {
+    padding: 7rem;
+  }
+  .HomeHeaderBlock {
+    height: 55rem;
+    border-radius: 7.5rem;
+  }
+  .HomeHeaderBlock p {
+    font-size: 2.5rem;
+  }
+  .HomeHeaderBlock h2 {
+    font-size: 4rem;
+  }
+  .HomeFooterDescription {
+    padding-top: 3rem;
+    text-align: left;
+  }
+  .HomeFooterDescriptionItem button {
+    width: 25rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+  .aboutContainer {
+    width: 100%;
+  }
+  .aboutContent {
+    display: flex;
+    flex-direction: column;
+  }
+  .heading {
+    font-size: 4rem;
+    padding-bottom: 5rem;
+  }
+  .aboutSection {
+    margin-top: 7.5rem;
+  }
+  .image {
+    width: 70rem;
+  }
+  .mapContainer {
+    width: 60rem;
+    height: 30rem;
+  }
+  .underMap,
+  .underSlider a {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+  }
+  .mapContainer li {
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 767px) {
+  .eventList {
+    width: 25rem;
+  }
+  .heading {
+    font-size: 3.5rem;
+  }
+  .cards,
+  .cards :only-child {
+    width: 10rem;
+    height: 10rem;
+  }
+  .gerb,
+  .gerb :only-child {
+    width: 5rem;
+  }
+  .HomeHeaderDescription {
+    grid-gap: 1.5rem;
+    padding-left: 0rem;
+    justify-content: space-around;
+  }
+  .HomeHeaderBlock p {
+    font-size: 1.5rem;
+  }
+  .HomeHeaderBlock h2 {
+    font-size: 2.2rem;
+  }
+  .HomeHeaderBlock {
+    height: max-content;
+  }
+  .HomeFooterDescription {
+    padding: 2rem 4rem;
+  }
+  .HomeFooterDescriptionItem button {
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+  .blockHeaderImg {
+    padding: 4rem;
+  }
+  .aboutContentItem1 {
+    width: 45rem;
+    height: max-content;
+  }
+  .Item1 {
+    width: 45rem;
+    height: max-content;
+    font-size: 1.4rem;
+  }
+  .Item1 h2,
+  .Item2 h2,
+  .aboutContentItem1 h2 {
+    font-size: 2.7rem;
+  }
+  .Item1 p,
+  .Item2 p,
+  .aboutContentItem1 p {
+    font-size: 2.5rem;
+  }
+  .Item2 {
+    width: 45rem;
+    height: max-content;
+  }
+  .image {
+    width: 42rem;
+  }
+  .mapContainer {
+    width: 40rem;
+  }
+  .partnerIcon {
+    width: 25rem;
+    border-radius: 5rem;
+    margin: 0 5rem;
+  }
+  .underMap,
+  .underSlider a {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .eventColumn,
+  .eventContent {
+    grid-gap: 3rem;
+  }
+  .HomeHeaderBlock {
+    border-radius: 4rem;
+  }
+  .blockHeaderImg {
+    padding: 1.5rem;
+  }
+  .cards,
+  .cards :only-child {
+    width: 8rem;
+    height: 8rem;
+  }
+  .gerb,
+  .gerb :only-child {
+    width: 4rem;
+  }
+  .HomeHeaderDescription {
+    grid-gap: 1.5rem;
+  }
+  .HomeHeaderBlock p {
+    font-size: 1.2rem;
+  }
+  .HomeHeaderBlock h2 {
+    font-size: 1.7rem;
+  }
+  .HomeHeaderBlock {
+    height: max-content;
+  }
+  .HomeFooterDescriptionItem button {
+    width: 13rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+  .heading {
+    font-size: 2.1rem;
+    padding-bottom: 3 rem;
+  }
+  .HomeFooterDescription {
+    padding: 1rem;
+  }
+  .image {
+    width: 30rem;
+  }
+  .aboutContent {
+    grid-gap: 7rem;
+  }
+  .aboutContentItem1 {
+    width: 32rem;
+    height: max-content;
+    border-radius: 6rem;
+    padding: 3.5rem;
+  }
+  .Item1,
+  .Item2 {
+    width: 32rem;
+    height: max-content;
+    padding: 4rem;
+    border-radius: 5rem;
+  }
+  .Item1 h2,
+  .Item2 h2,
+  .aboutContentItem1 h2 {
+    font-size: 2rem;
+  }
+  .Item1 p,
+  .Item2 p,
+  .aboutContentItem1 p {
+    font-size: 1.5rem;
+  }
+  .mapContainer {
+    width: 30rem;
+  }
+  .mapContainer li {
+    margin: 0.6rem 0;
+    font-size: 1.1rem;
+  }
+  .underMap,
+  .underSlider a {
+    font-size: 1.3rem;
+  }
+  .underSlider img{
+    width: 40px;
+  }
+}
