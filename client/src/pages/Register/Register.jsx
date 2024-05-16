@@ -251,7 +251,7 @@ const Register = ({ onUserRegistrationChange }) => {
                 onChange={(e) => setName(e.target.value)}
             />
           </div>
-          {emailError && <p style={{ color: "red" }}>{emailError}</p>}
+          {error && <div style={{ color: "red" }}>{error}</div>}
           <div className={styles.modalItemInput}>
             <img src="/public/User.svg" alt="" />
 
@@ -262,7 +262,8 @@ const Register = ({ onUserRegistrationChange }) => {
                 onChange={(e) => setMidleName(e.target.value)}
             />
           </div>
-          {error && <div style={{ color: "red" }}>{error}</div>}
+          {emailError && <p style={{ color: "red" }}>{emailError}</p>}
+
           <div className={styles.modalItemInput}>
             <img src="/public/Mail.svg" alt="" />
 
