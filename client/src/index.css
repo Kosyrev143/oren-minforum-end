@@ -82,3 +82,11 @@ a {
   width: 50rem;
   height: 50rem;
 }
+button{
+  cursor: pointer;
+  
+}
+a{
+  cursor: pointer;
+
+}

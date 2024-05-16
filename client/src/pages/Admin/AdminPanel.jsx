@@ -42,8 +42,16 @@ const AdminPanel = () => {
 	return (
 		<div>
 			<h1>Административная панель</h1>
-			<button onClick={exportUsersToExcel}>Выгрузить пользователей</button>
-			<button onClick={exportEventsToExcel}>Выгрузить события</button>
+			<br/>
+			<br/>
+			<div>
+				<button onClick={exportUsersToExcel}>Выгрузить пользователей</button>
+			</div>
+			<br/>
+			<div>
+				<button onClick={exportEventsToExcel}>Выгрузить события</button>
+			</div>
+			<br/>
 		</div>
 	);
 };
