@@ -22,19 +22,30 @@
             padding: 20px;
             max-width: 400px;
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        .success-message {
+        .success-message{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .qwerty {
             text-align: center;
-            margin-bottom: 20px;
             font-weight: bold;
             font-size: 2.25rem;
+            line-height: 0;
+            margin-top: 2rem;
         }
-        p{
-            margin-top: 0.5rem;
-        }
+        /*.success-message:last-child {*/
+        /*    margin-bottom: 20px;*/
+        /*}*/
         .qrcode {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 5px;
         }
         .profile-label {
             font-weight: bold;
@@ -50,16 +61,23 @@
 <div class="success-container">
     <h1 style="text-align:center">Бейджик участника</h1>
     <div class="success-message">
-        <div>
-            <p>{{surname}}</p>
-        </div>
-        <div>
-            <p>{{name}}</p>
-        </div>
-        <div>
-            <p>{{middlename}}</p>
-        </div>
+
+            <p class="qwerty">{{surname}}</p>
+
+
+            <p class="qwerty">{{name}}</p>
+
+
+            <p class="qwerty">{{middlename}}</p>
+
+
+            <p style="font-size: 10px;margin-top: 10px; text-align: center;">{{post}}</p>
+
+
+            <p style="font-size: 10px;margin-top: 5px; text-align: center;">{{organization}}</p>
+
     </div>
+
     <div class="qrcode">
         <img src="{{qrcode}}" alt="QR Code">
     </div>

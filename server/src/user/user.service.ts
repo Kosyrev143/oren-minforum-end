@@ -87,6 +87,18 @@ export class UserService {
 			events: user.events,
 		})
 
+		await this.emailService.sendEmailConfirmation3({
+			name: user.name,
+			surname: user.surname,
+			middlename: user.middlename,
+			qrcode,
+			email: user.email,
+			id: user.id,
+			events: user.events,
+			post: user.post,
+			organization: user.organization,
+		})
+
 		return { user }
 	}
 
