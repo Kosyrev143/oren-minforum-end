@@ -3,6 +3,7 @@ import styles from "./Register.module.css";
 import { useState } from "react";
 import { rayons } from "./data/dateList";
 import { useAddUsersMutation } from "../../redux/OrenApi";
+import { toast } from "react-toastify";
 
 const Register = ({ onUserRegistrationChange }) => {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
@@ -81,7 +82,6 @@ const Register = ({ onUserRegistrationChange }) => {
     },
   ];
 
-  console.log(answers[0].options);
 
   const handleSubmit = () => {
     let isValid = true;
@@ -194,28 +194,7 @@ const Register = ({ onUserRegistrationChange }) => {
 
 
   const addNewUsers = async () => {
-    console.log({
-      name,
-      seName,
-      midleName,
-      email,
-      phoneNumber,
-      organization,
-      post,
-      rayon,
-      selectedAnswers,
-    });
-    if (
-        seName &&
-        name &&
-        midleName &&
-        email &&
-        phoneNumber &&
-        organization &&
-        post &&
-        rayon &&
-        selectedAnswers
-    ) {
+    try {
       await postUser({
         seName,
         name,
@@ -227,17 +206,19 @@ const Register = ({ onUserRegistrationChange }) => {
         rayon,
         selectedAnswers,
       }).unwrap();
-      setName("");
-      setSeName("");
-      setMidleName("");
-      setEmail("");
-      setPhoneNumber("");
-      setOrganization("");
-      setPost("");
-      setRayon("");
-      setSelectedAnswers([]);
+      toast.success(
+          "Пользователь успешно зарегистрирован, мы отправим вам письмо на email с информацией о мероприятии"
+      );
+      onUserRegistrationChange(true);
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Произошла ошибка при регистрации пользователя");
+      }
     }
   };
+
   const handleButtonClick = () => {
     onUserRegistrationChange(true);
   };

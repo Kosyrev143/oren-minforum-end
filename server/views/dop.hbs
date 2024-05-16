@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Отмена регистрации</title>
+    <meta charset="utf-8" />
+    <title>Отмена регистрации</title>
     <style>
         body {
             display: flex;
@@ -23,20 +23,39 @@
             border-radius: 5px;
             cursor: pointer;
         }
-    </style>
 
+        #confirmation-message {
+            display: none;
+            color: green;
+        }
+    </style>
 </head>
 <body>
 <div>
     <div class="container">
         <p>Для отмены регистрации нажмите на кнопку</p>
-        <button onclick="sendDeleteRequest()">Отменить регистрацию</button>
+        <button id="cancel-button" onclick="sendDeleteRequest()">Отменить регистрацию</button>
+        <p id="confirmation-message">Вы отменили регистрацию</p>
     </div>
 
-  <script>
-    function sendDeleteRequest() {
-      fetch('/api/user/delete/{{id}}', { method: 'DELETE' })}
-  </script>
+    <script>
+        function sendDeleteRequest() {
+            fetch('/api/user/delete/{{id}}', { method: 'DELETE' })
+                    .then(response => {
+                        if (response.ok) {
+                            document.getElementById('cancel-button').style.display = 'none';
+                            document.getElementById('confirmation-message').style.display = 'block';
+                        } else {
+                            // Обработка ошибок, если запрос не был успешным
+                            alert('Произошла ошибка при отмене регистрации');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Ошибка:', error);
+                        alert('Произошла ошибка при отмене регистрации');
+                    });
+        }
+    </script>
 </div>
 </body>
 </html>

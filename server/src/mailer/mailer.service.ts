@@ -52,7 +52,7 @@ export class EmailService {
 		)
 
 		await this.mailerService.sendMail({
-			to: 'forum@mail.orb.ru', // Здесь указываем адрес получателя
+			to: 'kosyrevartem76@gmail.com', // Здесь указываем адрес получателя
 			subject: 'Оставлена заявка на бронирование',
 			template: 'confirmation2', // Используем другой шаблон
 			context: {
