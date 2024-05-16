@@ -5,10 +5,10 @@ import { User } from './entities/user.entity'
 import { Repository } from 'typeorm'
 import { QrcodeService } from '../qrcode/qrcode.service'
 import { EventService } from '../event/event.service'
-import { BookingService } from '../booking/booking.service'
 import { Booking } from '../booking/entities/booking.entity'
 import { Event } from '../event/entities/event.entity'
 import * as ExcelJS from 'exceljs'
+import {EmailService} from "../mailer/mailer.service";
 
 @Injectable()
 export class UserService {
@@ -16,12 +16,12 @@ export class UserService {
 		@InjectRepository(User)
 		private readonly userRepository: Repository<User>,
 		private readonly eventService: EventService,
-		private readonly bookingService: BookingService,
 		@InjectRepository(Booking)
 		private readonly bookingRepository: Repository<Booking>,
 		@InjectRepository(Event)
 		private readonly eventRepository: Repository<Event>,
 		private readonly qrcodeService: QrcodeService,
+		private readonly emailService: EmailService,
 	) {}
 
 	async create(createUserDto: CreateUserDto) {
@@ -52,7 +52,7 @@ export class UserService {
 					)
 				}
 
-				await this.bookingService.create({
+				await this.bookingRepository.save({
 					user,
 					event,
 				})
@@ -61,6 +61,31 @@ export class UserService {
 				await this.eventRepository.save(event)
 			}),
 		)
+		const booking = await this.bookingRepository.findOne({
+			where: { user: user },
+		})
+		const qrcode = await this.qrcodeService.create({
+			booking: booking,
+			url: `http://localhost:5000/api/profile/${user.id}`,
+		})
+		await this.emailService.sendEmail({
+			name: user.name,
+			surname: user.surname,
+			middlename: user.middlename,
+			qrcode,
+			email: user.email,
+			id: user.id,
+			events: user.events,
+		})
+		await this.emailService.sendEmailConfirmation2({
+			name: user.name,
+			surname: user.surname,
+			middlename: user.middlename,
+			qrcode,
+			email: user.email,
+			id: user.id,
+			events: user.events,
+		})
 
 		return { user }
 	}
@@ -74,7 +99,7 @@ export class UserService {
 			throw new BadRequestException(`Пользователь с ID ${id} не найден`)
 		}
 
-		const events = await Promise.all(
+		await Promise.all(
 			user.events.map(async (eventId) => {
 				const event = await this.eventRepository.findOne({
 					where: { id: eventId },
@@ -86,11 +111,13 @@ export class UserService {
 				}
 			}),
 		)
-		// Удаление пользователя
-		console.log('233333333333333333')
 		await this.userRepository.remove(user)
 
 		return `Пользователь с ID ${id} успешно удален`
+	}
+
+	async findOne(userId: number): Promise<User> {
+		return await this.userRepository.findOne({ where: { id: userId } })
 	}
 
 	async findAll(): Promise<User[]> {
