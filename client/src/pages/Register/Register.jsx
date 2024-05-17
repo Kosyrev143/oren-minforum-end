@@ -88,6 +88,16 @@ const Register = ({ onUserRegistrationChange }) => {
           id: 10,
           name: "Сессия «Особенности расследования несчастных случаев на производстве»",
         },
+
+      ],
+    },
+    {
+      category: "category5",
+      options: [
+        {
+          id: 11,
+          name: "Мероприятия проходящие в ОГАУ",
+        },
       ],
     },
   ];
@@ -193,7 +203,7 @@ const Register = ({ onUserRegistrationChange }) => {
       }
 
       // Добавляем новый ответ
-      if (prevSelectedAnswers.length < 4) {
+      if (prevSelectedAnswers.length < 5) {
         return [...prevSelectedAnswers, answer.id];
       } else {
         alert("Можно выбрать только один ответ в каждой категории");
@@ -323,40 +333,28 @@ const Register = ({ onUserRegistrationChange }) => {
                 onChange={(e) => setRayon(e.target.value)}
                 className={styles.cityList}
             >
-              <option value="">Местоположение</option>
+              <option value="">Город или  Район</option>
               {rayons.map((rayon) => (
                   <option value={rayon.name1}>{rayon.name2}</option>
               ))}
             </select>
           </div>
           <div className={styles.dropidropi}>
-            <Dropdown
-                menu={{
-                  items,
-                }}
-            >
-              <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                  !
-                  <DownOutlined />
-                </Space>
-              </a>
-            </Dropdown>
             <details className={styles.dropdown}>
-
               <summary role="button">
                 <a className={styles.button}>
                   Выберите события <img src="public\down.svg" alt="" />
                 </a>
               </summary>
               <ul>
+                <h2 style={{color: "red", marginBottom:"20px"}}>В каждой категории можно выбрать только одно событие!!!</h2>
                 <h2 className={styles.timeHead}>Время проведения: 10.30-12.00</h2>
                 {answers[0].options.map((answer) => {
                   return (
                       <div>
                         <li key={answer.id}>
                           <h2>{answer.time}</h2>
-                          <label style={{ color: "red" }}>
+                          <label style={{color: "red"}}>
                             <input
                                 type="checkbox"
                                 value={answer.id}
@@ -375,7 +373,7 @@ const Register = ({ onUserRegistrationChange }) => {
                       <div>
                         <li key={answer.id}>
                           <h2>{answer.time}</h2>
-                          <label style={{ color: "#fdcc62" }}>
+                          <label style={{color: "#fdcc62"}}>
                             <input
                                 type="checkbox"
                                 value={answer.id}
@@ -394,7 +392,7 @@ const Register = ({ onUserRegistrationChange }) => {
                       <div>
                         <li key={answer.id}>
                           <h2>{answer.time}</h2>
-                          <label style={{ color: "blue" }}>
+                          <label style={{color: "blue"}}>
                             <input
                                 type="checkbox"
                                 value={answer.id}
@@ -413,7 +411,26 @@ const Register = ({ onUserRegistrationChange }) => {
                       <div>
                         <li key={answer.id}>
                           <h2>{answer.time}</h2>
-                          <label style={{ color: "rgb(33, 234, 33)" }}>
+                          <label style={{color: "rgb(33, 234, 33)"}}>
+                            <input
+                                type="checkbox"
+                                value={answer.id}
+                                onChange={() => handleSelectAnswer(answer)}
+                                checked={selectedAnswers.includes(answer.id)}
+                            />
+                            {answer.name}
+                          </label>
+                        </li>
+                      </div>
+                  );
+                })}
+                <h2 className={styles.timeHead}>Мероприятия проходящие в ОГАУ</h2>
+                {answers[4].options.map((answer) => {
+                  return (
+                      <div>
+                        <li key={answer.id}>
+                          <h2>{answer.time}</h2>
+                          <label style={{color: "rgb(33, 234, 33)"}}>
                             <input
                                 type="checkbox"
                                 value={answer.id}
