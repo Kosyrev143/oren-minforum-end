@@ -1,9 +1,8 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm'
 
 export class Migrations1715579942670 implements MigrationInterface {
-
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+	public async up(queryRunner: QueryRunner): Promise<void> {
+		await queryRunner.query(`
             INSERT INTO event (name, start_time, end_time, available_seats) VALUES 
             ('Пленарная сессия «Вектор развития кадровой политики: новые инструменты и возможности»', '10:30', '12:00', 660),
             ('Сессия «Цифровое будущее охраны труда»', '10:30', '12:00', 250),
@@ -14,11 +13,10 @@ export class Migrations1715579942670 implements MigrationInterface {
             ('Дискуссионная сессия «Встреча без галстуков»', '13:00', '15:00', 150),
             ('Концертная программа «Открытие третьего трудового семестра»', '15:00', '17:00', 660),
             ('Дискуссионная сессия «Охрана труда в бюджетных организациях»', '15:00', '17:00', 250),
-            ('Сессия «Особенности расследования несчастных случаев на производстве»', '15:00', '17:00', 150);
-        `);
-    }
+            ('Сессия «Особенности расследования несчастных случаев на производстве»', '15:00', '17:00', 150),
+            ('Мероприятия, проходящие в ОГАУ»', '10:00', '17:00', 10000);
+        `)
+	}
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-    }
-
+	public async down(queryRunner: QueryRunner): Promise<void> {}
 }
