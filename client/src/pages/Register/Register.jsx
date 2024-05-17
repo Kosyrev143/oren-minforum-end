@@ -4,6 +4,8 @@ import { useState } from "react";
 import { rayons } from "./data/dateList";
 import { useAddUsersMutation } from "../../redux/OrenApi";
 import { toast } from "react-toastify";
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
 
 const Register = ({ onUserRegistrationChange }) => {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
@@ -18,6 +20,14 @@ const Register = ({ onUserRegistrationChange }) => {
   const [post, setPost] = useState("");
   const [postUser] = useAddUsersMutation();
   const [error, setError] = useState("");
+
+  const items = [
+    {
+      key: '1',
+      danger: true,
+      label: 'Нельзя выбрать больше одного мероприятия в одно время',
+    },
+  ];
 
   const answers = [
     {
@@ -320,7 +330,20 @@ const Register = ({ onUserRegistrationChange }) => {
             </select>
           </div>
           <div className={styles.dropidropi}>
+            <Dropdown
+                menu={{
+                  items,
+                }}
+            >
+              <a onClick={(e) => e.preventDefault()}>
+                <Space>
+                  !
+                  <DownOutlined />
+                </Space>
+              </a>
+            </Dropdown>
             <details className={styles.dropdown}>
+
               <summary role="button">
                 <a className={styles.button}>
                   Выберите события <img src="public\down.svg" alt="" />
