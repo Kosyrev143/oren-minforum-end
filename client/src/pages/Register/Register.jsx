@@ -96,7 +96,7 @@ const Register = ({ onUserRegistrationChange }) => {
       options: [
         {
           id: 11,
-          name: "Мероприятия проходящие в ОГАУ",
+          name: 'Мероприятия "Мир профессий", проходящие в ОГАУ'
         },
       ],
     },
@@ -347,7 +347,7 @@ const Register = ({ onUserRegistrationChange }) => {
                 </a>
               </summary>
               <ul>
-                <h2 style={{color: "red", marginBottom:"20px"}}>В каждой категории можно выбрать только одно событие!!!</h2>
+                <h2 style={{color: "red", marginBottom:"20px"}}>В каждой категории можно выбрать только одно событие!</h2>
                 <h2 className={styles.timeHead}>Время проведения: 10.30-12.00</h2>
                 {answers[0].options.map((answer) => {
                   return (
@@ -424,7 +424,7 @@ const Register = ({ onUserRegistrationChange }) => {
                       </div>
                   );
                 })}
-                <h2 className={styles.timeHead}>Мероприятия проходящие в ОГАУ</h2>
+                <h2 className={styles.timeHead}>Мероприятия "Мир профессий"</h2>
                 {answers[4].options.map((answer) => {
                   return (
                       <div>
