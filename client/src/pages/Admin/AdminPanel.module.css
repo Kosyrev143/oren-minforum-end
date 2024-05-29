@@ -1,0 +1,28 @@
+.modalItemInput {
+  display: flex;
+  align-items: center;
+  grid-gap: 2.5rem;
+  margin: 4rem 0;
+  justify-content: center;
+  width: 100%;
+}
+.modalButton {
+  width: 35rem;
+  height: 8rem;
+  border: none;
+  background-color: #fdcc62;
+  color: black;
+  border-radius: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 4rem ;
+}
+.modalInput {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-bottom: 2px solid black;
+  height: 4rem;
+  font-size: 2rem;
+  padding: 0 1rem;
+}
